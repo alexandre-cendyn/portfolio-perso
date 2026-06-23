@@ -134,7 +134,7 @@ a:hover {
 .feature-row {
   display: flex;
   flex-direction: column;
-  gap: 10Dpx;
+  gap: 10px; /* FIX: Removed the 'D' typo here */
   align-items: center;
 }
 
@@ -171,7 +171,7 @@ a:hover {
   width: 100%;
   max-width: 450px;
   height: auto;
-  min-height: 150px; /* Prevents image box collapse if src is empty during tests */
+  min-height: 150px; 
   border-radius: 6px;
   border: 1px solid #6D5D6E;
   object-fit: cover;
@@ -203,13 +203,12 @@ footer {
 }
 
 .social img {
-  width: 28px; /* Downsized social icons */
+  width: 28px; 
   height: auto;
 }
 
 /* Desktop Responsive Overrides */
 @media (min-width: 768px) {
-  /* Restores wide layout structure for desktops */
   h1,
   h2,
   p {
@@ -234,11 +233,11 @@ footer {
   }
 
   .logo-img {
-    width: 470px; /* Logo scales up to original design size on desktop */
+    width: 470px; 
   }
 
   .features-container {
-    padding: 50px 150px; /* Aligns grid section with heading padding */
+    padding: 50px 150px; 
   }
 
   .feature-row {
@@ -248,7 +247,8 @@ footer {
     margin-bottom: 40px;
   }
 
-  .feature-row.reverse {
+  /* NEW FIX: Automatically targets every second row (2nd, 4th, 6th...) to reverse it */
+  .feature-row:nth-child(even) {
     flex-direction: row-reverse;
   }
 
