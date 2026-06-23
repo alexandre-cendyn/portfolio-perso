@@ -37,10 +37,10 @@ h2 {
 /* Main Content Wrapper (Clears fixed elements space) */
 main {
   padding-top: 110px;    /* Leaves exact space for the fixed header */
-  padding-bottom: 90px;  /* Leaves exact space for the fixed footer */
+  padding-bottom: 40px;  /* ADJUSTED: Reduced now that the footer scrolls naturally */
 }
 
-/* Header Layout (Fixed at the top) */
+/* Header Layout (STILL FIXED at the top) */
 header {
   background-color: #312f3a; 
   padding: 15px 20px;
@@ -134,7 +134,7 @@ a:hover {
 .feature-row {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* FIX: Removed the 'D' typo here */
+  gap: 10px; 
   align-items: center;
 }
 
@@ -178,20 +178,15 @@ a:hover {
   margin-bottom: 20px;
 }
 
-/* Footer Layout (Fixed at the bottom & centered) */
+/* Footer Layout (UNFIXED: Scrolls naturally at the very bottom) */
 footer {
   background-color: #312f3a; 
-  padding: 15px 25px;
+  padding: 25px;            /* Slightly more breathing room */
   border-top: 1px solid #6D5D6E;
   display: flex;
   justify-content: center; 
   gap: 25px;               
-  align-items: center;
-  position: fixed;       
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;         
+  align-items: center;      
 }
 
 /* Footer Social Icons */
@@ -247,7 +242,7 @@ footer {
     margin-bottom: 40px;
   }
 
-  /* NEW FIX: Automatically targets every second row (2nd, 4th, 6th...) to reverse it */
+  /* Automatically targets every second row (2nd, 4th, 6th...) to reverse it */
   .feature-row:nth-child(even) {
     flex-direction: row-reverse;
   }
