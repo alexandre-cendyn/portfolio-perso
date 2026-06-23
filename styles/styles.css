@@ -1,0 +1,263 @@
+/* Color variables */
+:root {
+  --col1: #ffffff;
+  --col2: #1a1a1a;
+}
+
+/* Base Layout & Backgrounds */
+body {
+  background-color: #453d4b;
+  margin: 0;
+}
+
+/* Global Typography (Mobile-First Margins) */
+h1,
+h2,
+p {
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255);
+  margin-left: 20px;  /* Small safe margins for mobile viewports */
+  margin-right: 20px;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 2.8em; /* Slightly downscaled for small mobile screens */
+  color: var(--col1);
+}
+
+h2 {
+  font-size: 24px;
+  color: #a7a7a7;
+}
+
+/* Main Content Wrapper (Clears fixed elements space) */
+main {
+  padding-top: 110px;    /* Leaves exact space for the fixed header */
+  padding-bottom: 90px;  /* Leaves exact space for the fixed footer */
+}
+
+/* Header Layout (Fixed at the top) */
+header {
+  background-color: #312f3a; 
+  padding: 15px 20px;
+  border-bottom: 1px solid #6D5D6E;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;       
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;         
+}
+
+/* Header Sub-components */
+.root-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: invert(1);
+}
+
+.logo-img {
+  width: 240px; /* Scaled perfectly to fit mobile screens next to the hamburger */
+  max-width: 65%;
+  height: auto;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.hamburger-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hamburger-label span {
+  display: block;
+  width: 32px;
+  height: 4px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.menu-checkbox:checked ~ nav ul {
+  display: flex;
+}
+
+a {
+  display: flex;
+  justify-content: center; 
+  padding: 16px 0;
+  font-size: 20px;
+  color: #b3b3b3;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+/* Main Content Showcase Sections (Stacked on Mobile) */
+.features-container {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.feature-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10Dpx;
+  align-items: center;
+}
+
+.feature-text {
+  width: 100%;
+}
+
+.feature-text h3 {
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.feature-text p {
+  margin-left: 0;
+  margin-right: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #d1d1d1;
+}
+
+.feature-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.showcase-img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  min-height: 150px; /* Prevents image box collapse if src is empty during tests */
+  border-radius: 6px;
+  border: 1px solid #6D5D6E;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Footer Layout (Fixed at the bottom & centered) */
+footer {
+  background-color: #312f3a; 
+  padding: 15px 25px;
+  border-top: 1px solid #6D5D6E;
+  display: flex;
+  justify-content: center; 
+  gap: 25px;               
+  align-items: center;
+  position: fixed;       
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;         
+}
+
+/* Footer Social Icons */
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: invert(1);
+}
+
+.social img {
+  width: 28px; /* Downsized social icons */
+  height: auto;
+}
+
+/* Desktop Responsive Overrides */
+@media (min-width: 768px) {
+  /* Restores wide layout structure for desktops */
+  h1,
+  h2,
+  p {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  h1 {
+    font-size: 3.5em;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  main {
+    padding-top: 150px;  
+  }
+
+  header {
+    padding: 20px 50px; 
+  }
+
+  .logo-img {
+    width: 470px; /* Logo scales up to original design size on desktop */
+  }
+
+  .features-container {
+    padding: 50px 150px; /* Aligns grid section with heading padding */
+  }
+
+  .feature-row {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 40px;
+  }
+
+  .feature-row.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .feature-text, 
+  .feature-image {
+    width: 48%;
+  }
+
+  .showcase-img {
+    max-width: 100%;
+  }
+}
