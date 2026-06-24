@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portfolio - Alexandre CUNHA | Beatmaker & Ingé Son</title>
+    <link href="styles/styles.css" rel="stylesheet" />
+    <link href="styles/styles-home.css" rel="stylesheet" />
+    <link href="./images/logo.png" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body class="index">
+    <header>
+        <a href="index.html" class="root-link">
+            <img src="images/logo.png" alt="logo du site de portfolio" class="logo-img">
+        </a>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        
+        <label for="menu-toggle" class="hamburger-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="parcours.html">Mon Parcours</a></li>
+                <li><a href="portfolio.html">Portfolio - Réalisations</a></li>
+                <li><a href="Services.html">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div>
+                <h1>Mon Portfolio</h1>
+                <h2>Mes expériences en entreprise</h2>
+            </div>
+        </section>
+
+        <section class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/portfolio/eiffage.png" alt="Projet 1" class="portfolio-thumb" onclick="document.getElementById('pop1').showModal()">
+                <p class="portfolio-caption">Eiffage Construction</p>
+                
+                <dialog id="pop1" class="portfolio-modal">
+                    <form method="dialog">
+                        <button class="close-modal-btn">&times;</button>
+                    </form>
+                    <div class="modal-content">
+                        <img src="images/portfolio/eiffage.png" alt="Projet 1 Grand">
+                        <h3>Eiffage Construction</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio/instrumentys.png" alt="Projet 2" class="portfolio-thumb" onclick="document.getElementById('pop2').showModal()">
+                <p class="portfolio-caption">Instrumentys</p>
+                
+                <dialog id="pop2" class="portfolio-modal">
+                    <form method="dialog">
+                        <button class="close-modal-btn">&times;</button>
+                    </form>
+                    <div class="modal-content">
+                        <img src="images/portfolio/instrumentys.png" alt="Projet 2 Grand">
+                        <h3>Instrumentys</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio/signal.jpg" alt="Projet 3" class="portfolio-thumb" onclick="document.getElementById('pop3').showModal()">
+                <p class="portfolio-caption">Signal.fr</p>
+                
+                <dialog id="pop3" class="portfolio-modal">
+                    <form method="dialog">
+                        <button class="close-modal-btn">&times;</button>
+                    </form>
+                    <div class="modal-content">
+                        <img src="images/portfolio/signal.jpg" alt="Projet 3 Grand">
+                        <h3>DSignal.fr</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio/cendyn.png" alt="Projet 4" class="portfolio-thumb" onclick="document.getElementById('pop4').showModal()">
+                <p class="portfolio-caption">Cenydyn</p>
+                
+                <dialog id="pop4" class="portfolio-modal">
+                    <form method="dialog">
+                        <button class="close-modal-btn">&times;</button>
+                    </form>
+                    <div class="modal-content">
+                        <img src="images/portfolio/cendyn.png" alt="Projet 4 Grand">
+                        <h3>Cendyn</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </dialog>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://www.instagram.com/a6.5officiel/" class="social">
+            <img src="images/footer-header/logo_insta.png" alt="Link to Alexandre's Instagram profile">
+        </a>
+        <a href="https://www.youtube.com/@A6.5_officiel" class="social">
+            <img src="images/footer-header/logo_youtube.png" alt="Link to Alexandre's YouTube profile">
+        </a>
+        <a href="https://www.tiktok.com/@a6.5officiel" class="social">
+            <img src="images/footer-header/logo_tiktok.png" alt="Link to Alexandre's TikTok profile">
+        </a>
+        <a href="https://open.spotify.com/artist/TON_ID_ARTISTE" class="social">
+            <img src="images/footer-header/spotify.png" alt="Link to Alexandre's Spotify profile">
+        </a>
+        <a href="mailto:alexandreguy.cunha@gmail.com" class="social">
+            <img src="images/footer-header/mail.png" alt="Send an email to Alexandre">
+        </a>
+    </footer>
+</body>
+</html>

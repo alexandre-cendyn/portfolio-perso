@@ -8,6 +8,7 @@
 body {
   background-color: #453d4b;
   margin: 0;
+  overflow-x: hidden; /* REMOVES HORIZONTAL SCROLLBAR */
 }
 
 /* Global Typography (Mobile-First Margins) */
@@ -87,12 +88,12 @@ header {
   width: 32px;
   height: 4px;
   background-color: #ffffff;
-  transition: all 0.3s ease;
 }
 
 /* Navigation Links */
 nav {
   width: 100%;
+  align-items: center;
 }
 
 nav ul {
@@ -100,24 +101,25 @@ nav ul {
   padding: 0;
   margin: 0;
   display: none;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   padding-top: 15px;
 }
 
+/* Display the menu content */
 .menu-checkbox:checked ~ nav ul {
   display: flex;
 }
 
 a {
   display: flex;
-  justify-content: center; 
+  justify-content: flex-start; 
   padding: 16px 0;
   font-size: 20px;
   color: #b3b3b3;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  transition: color 0.2s ease;
 }
 
 a:hover {
@@ -255,5 +257,163 @@ footer {
 
   .showcase-img {
     max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   --- PORTFOLIO GRID (Homepage / Global Grid) ---
+   ========================================================================== */
+
+.portfolio-grid {
+  padding: 20px;                      
+  display: flex;                      
+  flex-direction: column;            /* Vertical list layout on mobile */
+  gap: 40px;                         /* Regular spacing between blocks */
+  width: 100%;
+}
+
+.portfolio-item {
+  display: flex;                      
+  flex-direction: column;            
+  align-items: center;               /* HORIZONTAL CENTERING: Aligns image and caption perfectly */
+  justify-content: center;           
+  width: 100%;                       
+  margin: 0 auto;                    
+}
+
+.portfolio-thumb {
+  width: 100%;                       
+  max-width: 650px;                  /* ADJUSTED SIZE: Reduced from 800px to 650px to shorten the diagonal */
+  aspect-ratio: 16 / 9;              /* FORCES 16:9 cinema aspect ratio (No distortion) */
+  height: auto;                      
+  border-radius: 12px;               /* Elegant rounded corners */
+  border: 2px solid #6D5D6E;         
+  cursor: pointer;                   
+  object-fit: cover;                 /* Crops the image cleanly without stretching */
+  background-color: #312f3a;         /* Dark placeholder background if image fails to load */
+}
+
+/* Visual effects on hover for homepage thumbnails */
+.portfolio-thumb:hover {
+  filter: brightness(1.1);           
+}
+
+.portfolio-caption {
+  font-family: 'Montserrat', sans-serif; 
+  color: #d1d1d1;                    
+  font-size: 16px;                   
+  margin-top: 15px;                  
+  text-align: center;                /* FORCES the text to center below the image */
+  width: 100%;                       
+}
+
+/* ==========================================================================
+   --- POP-UP SYSTEM (MODAL) ---
+   ========================================================================== */
+
+.portfolio-modal {
+  background-color: #312f3a;         /* Same background as the site for perfect integration */
+  border: 1px solid rgba(109, 93, 110, 0.4); 
+  border-radius: 16px;               /* Modern rounded corners */
+  padding: 0;                        /* Set to 0 so the inner image fits without white margins */
+  max-width: 650px;                  /* Modal width on desktop */
+  width: 90%;                        /* Adapts to mobile viewports */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); 
+  overflow: hidden;                  /* Prevents text or image from overflowing rounded corners */
+}
+
+/* Darkened and blurred site background when modal is open */
+.portfolio-modal::backdrop {
+  background-color: rgba(15, 13, 18, 0.8); 
+  backdrop-filter: blur(12px);       /* High-end background blur effect */
+}
+
+/* CLOSE BUTTON */
+.close-modal-btn {
+  position: absolute;                
+  top: 20px;                         
+  right: 20px;                       
+  width: 40px;                       
+  height: 40px;                      
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black circle for readability over the image */
+  border: none !important;           /* Forces removal of default borders */
+  border-radius: 50%;                /* Makes the button perfectly round */
+  
+  /* --- OUTLINE FIX --- */
+  outline: none !important;          /* Removes default browser accessibility outline */
+  box-shadow: none !important;        /* Removes stray focus shadows */
+  
+  color: #ffffff;                    
+  font-size: 24px;                   
+  display: flex;                     /* Centers the cross inside the circle */
+  align-items: center;               
+  justify-content: center;           
+  cursor: pointer;                   
+  z-index: 10;                       /* Stays on top of everything */
+}
+
+/* Extra security: disables outline on mouse click and keyboard focus */
+.close-modal-btn:focus,
+.close-modal-btn:active,
+.close-modal-btn:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.close-modal-btn:hover {
+  background-color: #ff4a4a;         /* Circle turns red on hover */
+  color: #ffffff;
+}
+
+/* Inner modal content */
+.modal-content {
+  display: flex;                     
+  flex-direction: column;            
+  color: #ffffff;                    
+  width: 100%;
+}
+
+/* Image inside the modal */
+.modal-content img {
+  width: 100%;                       
+  height: auto;                      
+  aspect-ratio: 16 / 9;              /* Maintains 16:9 format inside the modal too */
+  object-fit: cover;                 
+  border-bottom: 2px solid rgba(109, 93, 110, 0.3); /* Subtle separation line */
+}
+
+/* Text section below the modal image */
+.modal-content h3 {
+  font-family: 'Fjalla One', sans-serif; 
+  margin: 25px 30px 10px 30px;       /* Aligns cleanly with internal margins */
+  font-size: 24px;                   
+  letter-spacing: 0.5px;             
+}
+
+.modal-content p {
+  font-family: 'Manrope', sans-serif; 
+  font-size: 15px;                   
+  line-height: 1.7;                  /* Generous line height for body text */
+  color: #c5b4c7;                    
+  margin: 0 30px 30px 30px;          /* Adds breathing room at the bottom of the modal */
+}
+
+/* ==========================================================================
+   --- DESKTOP CONFIGURATION (Computer Grid) ---
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .portfolio-grid {
+    display: grid;                   
+    grid-template-columns: repeat(2, 1fr); /* 2 frames per row */
+    gap: 40px;
+    padding-top: 50px;       /* Corrected top padding */
+    padding-bottom: 50px;
+    justify-items: center;   /* Perfectly centers the 500px frames within their grid columns */
+  }
+  
+  .portfolio-thumb {
+    max-width: 500px;        /* Keeps adjusted desktop maximum width */
   }
 }
