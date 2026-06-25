@@ -4,11 +4,17 @@
   --col2: #1a1a1a;
 }
 
+/* Global Reset - Prevents padding from causing elements to overflow the viewport */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Base Layout & Backgrounds */
 body {
   background-color: #453d4b;
   margin: 0;
-  overflow-x: hidden; /* REMOVES HORIZONTAL SCROLLBAR */
+  overflow-x: hidden; /* Safeguard to prevent horizontal scrolling */
+  width: 100%;
 }
 
 /* Global Typography (Mobile-First Margins) */
@@ -39,10 +45,25 @@ h2 {
 /* Main Content Wrapper (Clears fixed elements space) */
 main {
   padding-top: 110px;    /* Leaves exact space for the fixed header */
-  padding-bottom: 40px;  /* ADJUSTED: Reduced now that the footer scrolls naturally */
+  padding-bottom: 60px;  /* Increased to give space below the CTA button */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header Layout (STILL FIXED at the top) */
+/* Supprime le soulignement par défaut et la couleur bleue du lien */
+.feature-link {
+  text-decoration: none;
+  color: inherit; /* Permet au lien de prendre la couleur blanche définie sur le h3 */
+}
+
+/* Force la ville à aller à la ligne en dessous tout en restant dans l'hyperlien */
+.feature-location {
+  display: block; 
+  margin-top: 5px; /* Optionnel : ajoute un léger espace au-dessus de la ville */
+  color: #a7a7a7;  /* Optionnel : donne une couleur légèrement plus claire ou identique à ton h2 pour hiérarchiser */
+}
+
+/* Header Layout (Fixed at the top) */
 header {
   background-color: #312f3a; 
   padding: 15px 20px;
@@ -58,6 +79,25 @@ header {
   z-index: 1000;         
 }
 
+/* Call To Action Button Styling */
+.cta {
+  display: block;
+  background: #312f3a;
+  color: #d1d1d1;
+  border: 1px solid #6D5D6E;
+  border-radius: 25px;
+  padding: 20px 40px;
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  width: max-content;
+  margin: 40px auto 20px auto; /* Centers the button horizontally with auto margins */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 /* Header Sub-components */
 .root-link {
   display: flex;
@@ -67,7 +107,7 @@ header {
 }
 
 .logo-img {
-  width: 240px; /* Scaled perfectly to fit mobile screens next to the hamburger */
+  width: 240px; /* Scaled to fit mobile screens next to the hamburger menu */
   max-width: 65%;
   height: auto;
 }
@@ -107,12 +147,13 @@ nav ul {
   padding-top: 15px;
 }
 
-/* Display the menu content */
+/* Display the menu content when checkbox is ticked */
 .menu-checkbox:checked ~ nav ul {
   display: flex;
 }
 
-a {
+/* Base style for default anchors inside lists or sections */
+nav a, .modal-content a {
   display: flex;
   justify-content: flex-start; 
   padding: 16px 0;
@@ -122,7 +163,7 @@ a {
   font-family: 'Montserrat', sans-serif;
 }
 
-a:hover {
+nav a:hover, .modal-content a:hover {
   color: #ffffff;
 }
 
@@ -149,7 +190,7 @@ a:hover {
   font-family: 'Fjalla One', sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
-  color: rgb(255, 255, 255);
+  color: #d1d1d1;
   font-size: 24px;
   margin-top: 0;
   margin-bottom: 10px;
@@ -181,10 +222,10 @@ a:hover {
   margin-bottom: 20px;
 }
 
-/* Footer Layout (UNFIXED: Scrolls naturally at the very bottom) */
+/* Footer Layout (Unfixed: Scrolls naturally at the bottom) */
 footer {
   background-color: #312f3a; 
-  padding: 25px;            /* Slightly more breathing room */
+  padding: 25px;            /* Added padding for extra breathing room */
   border-top: 1px solid #6D5D6E;
   display: flex;
   justify-content: center; 
@@ -245,7 +286,7 @@ footer {
     margin-bottom: 40px;
   }
 
-  /* Automatically targets every second row (2nd, 4th, 6th...) to reverse it */
+  /* Automatically targets every second row (2nd, 4th, 6th...) to reverse orientation */
   .feature-row:nth-child(even) {
     flex-direction: row-reverse;
   }
@@ -258,6 +299,10 @@ footer {
   .showcase-img {
     max-width: 100%;
   }
+
+  .cta {
+    margin: 50px auto 30px auto; /* Slightly more structural margins for desktop screen layouts */
+  }
 }
 
 /* ==========================================================================
@@ -269,13 +314,13 @@ footer {
   display: flex;                      
   flex-direction: column;            /* Vertical list layout on mobile */
   gap: 40px;                         /* Regular spacing between blocks */
-  width: 100%;
+  /* Width removed to avoid viewport padding overflow on mobile */
 }
 
 .portfolio-item {
   display: flex;                      
   flex-direction: column;            
-  align-items: center;               /* HORIZONTAL CENTERING: Aligns image and caption perfectly */
+  align-items: center;               /* Horizontal centering: Aligns image and caption perfectly */
   justify-content: center;           
   width: 100%;                       
   margin: 0 auto;                    
@@ -283,8 +328,8 @@ footer {
 
 .portfolio-thumb {
   width: 100%;                       
-  max-width: 650px;                  /* ADJUSTED SIZE: Reduced from 800px to 650px to shorten the diagonal */
-  aspect-ratio: 16 / 9;              /* FORCES 16:9 cinema aspect ratio (No distortion) */
+  max-width: 650px;                  /* Adjusted size: Shortens the diagonal layout */
+  aspect-ratio: 16 / 9;              /* Forces 16:9 cinema aspect ratio with no distortion */
   height: auto;                      
   border-radius: 12px;               /* Elegant rounded corners */
   border: 2px solid #6D5D6E;         
@@ -303,7 +348,7 @@ footer {
   color: #d1d1d1;                    
   font-size: 16px;                   
   margin-top: 15px;                  
-  text-align: center;                /* FORCES the text to center below the image */
+  text-align: center;                /* Forces text to center below the image */
   width: 100%;                       
 }
 
@@ -312,7 +357,7 @@ footer {
    ========================================================================== */
 
 .portfolio-modal {
-  background-color: #312f3a;         /* Same background as the site for perfect integration */
+  background-color: #312f3a;         /* Same background color as the site for seamless integration */
   border: 1px solid rgba(109, 93, 110, 0.4); 
   border-radius: 16px;               /* Modern rounded corners */
   padding: 0;                        /* Set to 0 so the inner image fits without white margins */
@@ -336,20 +381,20 @@ footer {
   width: 40px;                       
   height: 40px;                      
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black circle for readability over the image */
-  border: none !important;           /* Forces removal of default borders */
+  border: none !important;           /* Forces removal of default browser borders */
   border-radius: 50%;                /* Makes the button perfectly round */
   
   /* --- OUTLINE FIX --- */
   outline: none !important;          /* Removes default browser accessibility outline */
-  box-shadow: none !important;        /* Removes stray focus shadows */
+  box-shadow: none !important;       /* Removes stray focus shadows */
   
   color: #ffffff;                    
   font-size: 24px;                   
-  display: flex;                     /* Centers the cross inside the circle */
+  display: flex;                     /* Centers the cross icon inside the circle */
   align-items: center;               
   justify-content: center;           
   cursor: pointer;                   
-  z-index: 10;                       /* Stays on top of everything */
+  z-index: 10;                       /* Stays on top of content layers */
 }
 
 /* Extra security: disables outline on mouse click and keyboard focus */
@@ -378,7 +423,7 @@ footer {
 .modal-content img {
   width: 100%;                       
   height: auto;                      
-  aspect-ratio: 16 / 9;              /* Maintains 16:9 format inside the modal too */
+  aspect-ratio: 16 / 9;              /* Maintains 16:9 format inside the modal */
   object-fit: cover;                 
   border-bottom: 2px solid rgba(109, 93, 110, 0.3); /* Subtle separation line */
 }
@@ -386,17 +431,18 @@ footer {
 /* Text section below the modal image */
 .modal-content h3 {
   font-family: 'Fjalla One', sans-serif; 
-  margin: 25px 30px 10px 30px;       /* Aligns cleanly with internal margins */
+  margin: 25px 30px 10px 30px;       /* Aligns with internal content margins */
   font-size: 24px;                   
-  letter-spacing: 0.5px;             
+  letter-spacing: 0.5px;    
+  color: #d1d1d1;         
 }
 
 .modal-content p {
   font-family: 'Manrope', sans-serif; 
   font-size: 15px;                   
-  line-height: 1.7;                  /* Generous line height for body text */
+  line-height: 1.7;                  /* Generous line height for readable body text */
   color: #c5b4c7;                    
-  margin: 0 30px 30px 30px;          /* Adds breathing room at the bottom of the modal */
+  margin: 0 30px 30px 30px;          /* Adds space at the bottom of the modal container */
 }
 
 /* ==========================================================================
@@ -406,14 +452,14 @@ footer {
 @media (min-width: 768px) {
   .portfolio-grid {
     display: grid;                   
-    grid-template-columns: repeat(2, 1fr); /* 2 frames per row */
+    grid-template-columns: repeat(2, 1fr); /* 2 grid frames per row */
     gap: 40px;
-    padding-top: 50px;       /* Corrected top padding */
+    padding-top: 50px;               /* Corrected top padding */
     padding-bottom: 50px;
-    justify-items: center;   /* Perfectly centers the 500px frames within their grid columns */
+    justify-items: center;           /* Centers the 500px frames within their grid columns */
   }
   
   .portfolio-thumb {
-    max-width: 500px;        /* Keeps adjusted desktop maximum width */
+    max-width: 500px;                /* Keeps adjusted desktop maximum width */
   }
 }
