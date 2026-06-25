@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Mon Parcours - Alexandre CUNHA | Beatmaker & Ingé Son</title>
-    <link href="styles/styles.css" rel="stylesheet" />
-    <link href="styles/styles-home.css" rel="stylesheet" />
+    <link href="./styles/styles.css" rel="stylesheet" />
+    <link href="./styles/styles-home.css" rel="stylesheet" />
     <link href="./images/logo.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
             <img src="images/logo.png" alt="logo du site de portfolio" class="logo-img">
         </a>
         
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
         
         <label for="menu-toggle" class="hamburger-label">
             <span></span>
@@ -33,84 +33,73 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="career.html">Mon Parcours</a></li>
                 <li><a href="portfolio.html">Portfolio - Réalisations</a></li>
-                <li><a href="Services.html">Services</a></li>
+                <li><a href="services.html">Services</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="intro">
-            <div>
-                <h1>Mon Parcours</h1>
+        <h1>Mon Parcours</h1>
+
+        <section class="features-container">
+            <!-- First block : College Catherine De Vivonne (Odd) -->
+            <div class="feature-item">
+                <div class="feature-content">
+                    <a target="_blank" href="https://clg-vivonne-rambouillet.ac-versailles.fr/" rel="noopener noreferrer" class="feature-link">
+                        <h3>Collège Catherine de Vivonne</h3>
+                    </a>
+                    <span class="feature-location">Rambouillet - 78120</span>
+                    <p>
+                        C'est ici que mon parcours scolaire a débuté. J'y ai passé mes premières années de collège jusqu'au milieu de la classe de 4ème.
+                    </p>
+                    <p>
+                        C'est durant cette période, à Rambouillet, que ma curiosité pour l'informatique et ma passion pour la musique ont commencé à s'affirmer.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="images/career/college-vivonne.jpg" alt="Picture of the Catherine de Vivonne school in Rambouillet" class="feature-image-img" />
+                </div>
+            </div>
+
+            <!-- Second block : College Saint-Joseph (Even) -->
+            <div class="feature-item">
+                <div class="feature-content">
+                    <a target="_blank" href="https://www.ecolecollegestjoseph.net/" rel="noopener noreferrer" class="feature-link">
+                        <h3>Collège Privé Saint-Joseph</h3>
+                    </a>
+                    <span class="feature-location">Auneau - 28700</span>
+                    <p>
+                        Début 2023, j'ai pris un nouveau départ en intégrant le collège Saint-Joseph à Auneau pour y terminer mon cycle secondaire.
+                    </p>
+                    <p>
+                        Ce changement d'établissement m'a permis de gagner en autonomie, de décrocher mon brevet et de valider mon projet d'orientation vers les technologies du numérique.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="images/career/college-st-joseph.jpg" alt="Picture of the Saint-Joseph private school in Auneau" class="feature-image-img">
+                </div>
+            </div>
+
+            <!-- Third block : Lycee Josephine Baker (Odd) -->
+            <div class="feature-item">
+                <div class="feature-content">
+                    <a target="_blank" href="https://lycee-josephine-baker.fr/" rel="noopener noreferrer" class="feature-link">
+                        <h3>Lycée Joséphine Baker → Bac Pro CIEL</h3>
+                    </a>
+                    <span class="feature-location">Hanches - 28130</span>
+                    <p>
+                        Aujourd'hui, je me spécialise au lycée Joséphine Baker dans la filière CIEL (Cybersécurité, Informatique et réseaux, Électronique).
+                    </p>
+                    <p>
+                        C'est le cœur technique de mon profil : ce que j'y apprends en gestion des réseaux, en informatique et en électronique me donne les clés parfaites pour maîtriser l'architecture d'un studio, le hardware et les logiciels de MAO (Musique Assistée par Ordinateur).
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="images/career/lycee-josephine-baker.jpg" alt="Picture of the Josephine Baker High School in Hanches" class="feature-image-img">
+                </div>
             </div>
         </section>
 
-        <section class="features-container">
-    
-    <!-- Première ligne (Impaire) -->
-    <div class="feature-row">
-        <div class="feature-text">
-            <a target="_blank" href="https://clg-vivonne-rambouillet.ac-versailles.fr/" rel="noopener noreferrer" class="feature-link">
-                <h3>
-                    Collège Catherine de Vivonne 
-                    <span class="feature-location">Rambouillet</span>
-                </h3>
-            </a>
-            <p>
-                C'est ici que mon parcours scolaire a débuté. J'y ai passé mes premières années de collège jusqu'au milieu de la classe de 4ème.
-            </p>
-            <p>
-                C'est durant cette période, à Rambouillet, que ma curiosité pour l'informatique et ma passion pour la musique ont commencé à s'affirmer.
-            </p>
-        </div>
-        <div class="feature-image">
-            <img src="images/parcours/college-vivonne.jpg" alt="Picture of the Catherine de Vivonne school in Rambouillet" class="showcase-img" >
-        </div>
-    </div>
-
-    <!-- Deuxième ligne (Paire) -->
-    <div class="feature-row">
-        <div class="feature-text">
-            <a target="_blank" href="https://www.ecolecollegestjoseph.net/" rel="noopener noreferrer" class="feature-link">
-                <h3>
-                    Collège Privé Saint-Joseph
-                    <span class="feature-location">Auneau</span>
-                </h3>
-            </a>
-            <p>
-                Début 2023, j'ai pris un nouveau départ en intégrant le collège Saint-Joseph à Auneau pour y terminer mon cycle secondaire.
-            </p>
-            <p>
-                Ce changement d'établissement m'a permis de gagner en autonomie, de décrocher mon brevet et de valider mon projet d'orientation vers les technologies du numérique.
-            </p>
-        </div>
-        <div class="feature-image">
-            <img src="images/parcours/college-st-joseph.jpg" alt="Picture of the Saint-Joseph private school in Auneau" class="showcase-img">
-        </div>
-    </div>
-
-    <!-- Troisième ligne (Impaire) -->
-    <div class="feature-row">
-        <div class="feature-text">
-            <a target="_blank" href="https://lycee-josephine-baker.fr/" rel="noopener noreferrer" class="feature-link">
-                <h3>
-                    Lycée Joséphine Baker → Bac Pro CIEL
-                    <span class="feature-location">Hanches</span>
-                </h3>
-            </a>
-            <p>
-                Aujourd'hui, je me spécialise au lycée Joséphine Baker dans la filière CIEL (Cybersécurité, Informatique et réseaux, Électronique).
-            </p>
-            <p>
-                C'est le cœur technique de mon profil : ce que j'y apprends en gestion des réseaux, en informatique et en électronique me donne les clés parfaites pour maîtriser l'architecture d'un studio, le hardware et les logiciels de MAO (Musique Assistée par Ordinateur).</p>
-        </div>
-        <div class="feature-image">
-            <img src="images/parcours/lycee-josephine-baker.jpg" alt="Picture of the Josephine Baker High School in Hanches" class="showcase-img">
-        </div>
-    </div>
-
-</section>
-        </section>
         <a href="portfolio.html" class="cta">
             MON PORTFOLIO
         </a>

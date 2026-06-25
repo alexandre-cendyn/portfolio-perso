@@ -33,6 +33,7 @@ p {
 h1 {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 2.8em; /* Slightly downscaled for small mobile screens */
   color: var(--col1);
 }
@@ -50,17 +51,20 @@ main {
   flex-direction: column;
 }
 
-/* Supprime le soulignement par défaut et la couleur bleue du lien */
+/* Prevents link text color shift and removes underlines */
 .feature-link {
   text-decoration: none;
-  color: inherit; /* Permet au lien de prendre la couleur blanche définie sur le h3 */
+  color: inherit;
 }
 
-/* Force la ville à aller à la ligne en dessous tout en restant dans l'hyperlien */
+/* Formats location below headers correctly */
 .feature-location {
   display: block; 
-  margin-top: 5px; /* Optionnel : ajoute un léger espace au-dessus de la ville */
-  color: #a7a7a7;  /* Optionnel : donne une couleur légèrement plus claire ou identique à ton h2 pour hiérarchiser */
+  margin-top: 5px;
+  margin-bottom: 15px;
+  color: #a7a7a7;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 /* Header Layout (Fixed at the top) */
@@ -175,18 +179,18 @@ nav a:hover, .modal-content a:hover {
   gap: 40px;
 }
 
-.feature-row {
+.feature-item {
   display: flex;
   flex-direction: column;
   gap: 10px; 
   align-items: center;
 }
 
-.feature-text {
+.feature-content {
   width: 100%;
 }
 
-.feature-text h3 {
+.feature-content h3 {
   font-family: 'Fjalla One', sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
@@ -196,7 +200,7 @@ nav a:hover, .modal-content a:hover {
   margin-bottom: 10px;
 }
 
-.feature-text p {
+.feature-content p {
   margin-left: 0;
   margin-right: 0;
   font-family: 'Montserrat', sans-serif;
@@ -211,7 +215,7 @@ nav a:hover, .modal-content a:hover {
   justify-content: center;
 }
 
-.showcase-img {
+.feature-image-img {
   width: 100%;
   max-width: 450px;
   height: auto;
@@ -279,7 +283,7 @@ footer {
     padding: 50px 150px; 
   }
 
-  .feature-row {
+  .feature-item {
     flex-direction: row;
     justify-content: space-between;
     gap: 60px;
@@ -287,16 +291,16 @@ footer {
   }
 
   /* Automatically targets every second row (2nd, 4th, 6th...) to reverse orientation */
-  .feature-row:nth-child(even) {
+  .feature-item:nth-child(even) {
     flex-direction: row-reverse;
   }
 
-  .feature-text, 
+  .feature-content, 
   .feature-image {
     width: 48%;
   }
 
-  .showcase-img {
+  .feature-image-img {
     max-width: 100%;
   }
 
@@ -314,7 +318,6 @@ footer {
   display: flex;                      
   flex-direction: column;            /* Vertical list layout on mobile */
   gap: 40px;                         /* Regular spacing between blocks */
-  /* Width removed to avoid viewport padding overflow on mobile */
 }
 
 .portfolio-item {
@@ -357,14 +360,27 @@ footer {
    ========================================================================== */
 
 .portfolio-modal {
-  background-color: #312f3a;         /* Same background color as the site for seamless integration */
+  background-color: #312f3a; 
   border: 1px solid rgba(109, 93, 110, 0.4); 
-  border-radius: 16px;               /* Modern rounded corners */
-  padding: 0;                        /* Set to 0 so the inner image fits without white margins */
-  max-width: 650px;                  /* Modal width on desktop */
-  width: 90%;                        /* Adapts to mobile viewports */
+  border-radius: 16px; 
+  padding: 0; 
+  max-width: 650px; 
+  width: 90%; 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); 
-  overflow: hidden;                  /* Prevents text or image from overflowing rounded corners */
+
+  max-height: 85vh;          /* Limits the pop-up height to 85% of the screen */
+  overflow-y: auto;          /* Activates the vertical scroll bar if necessary */
+  overflow-x: hidden;        /* Prevents any horizontal scrolling bugs */
+}
+
+/* Added to prevent the image from breaking the scroll */
+.modal-content img {
+  width: 100%; 
+  height: auto; 
+  aspect-ratio: 16 / 9; 
+  object-fit: cover; 
+  border-bottom: 2px solid rgba(109, 93, 110, 0.3);
+  flex-shrink: 0;            /* Prevents the image from crashing when scrolling */
 }
 
 /* Darkened and blurred site background when modal is open */
